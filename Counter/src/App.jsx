@@ -5,11 +5,26 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
-  let counter = 15
+  // let counter = 15
+  let [counter, setCounter] = useState(1)
 
   const addValue = () => {
-    counter = counter + 1
+    // counter = counter + 1
+    if(counter == 20){
+      return;
+    }
     console.log("clicked ",counter);
+    setCounter(counter + 1)
+    
+    
+    
+  }
+
+  const removeValue = ()=>{
+    if(counter <= 0){
+      return;
+    }
+    setCounter(counter - 1)
     
     
   }
@@ -22,7 +37,8 @@ function App() {
 
      <button onClick={addValue}>Add value </button>
      <br />
-     <button>Remove value</button>
+     <button onClick={removeValue}>Remove value</button>
+     <p>Footer :{counter}</p>
 
       
     </>
